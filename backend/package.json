@@ -5,14 +5,17 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon src/server.js"
   },
   "author": "Shivraj Joshi",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
   }
 }
