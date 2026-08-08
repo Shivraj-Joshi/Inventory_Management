@@ -1,11 +1,18 @@
 import express from 'express'
+import authRouter from './routes/auth.routes.js'
 
 const app = express()
+const PORT = process.env.PORT || 5000
+
+app.use(express.json());
+
+
+app.use('/api/auth', authRouter);
 
 app.get('/', (req, res) => {
-    res.send('Inventory Management project is now officialy began this is a protfolio worthy prject')
+    res.send('Inventory Management project is running')
 })
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000')
+app.listen(PORT, () => {
+    console.log(`Your app is running on port: ${PORT}`)
 })

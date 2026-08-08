@@ -7,6 +7,11 @@
   "scripts": {
     "dev": "nodemon src/server.js"
   },
+
+  "prisma": {
+  "seed": "node prisma/seed.js"
+},
+
   "author": "Shivraj Joshi",
   "license": "ISC",
   "dependencies": {
