@@ -16,7 +16,7 @@ const userLogin = async (email, password) => {
     const isMatch = await bycrpt.compare(password, user.password)
 
     if (!isMatch) {
-        throw new Error('Invalid Password , try agian!!')
+        throw new Error('Invalid Credentials , try agian!!')
     }
 
     const token = jwt.sign(
@@ -31,3 +31,6 @@ const userLogin = async (email, password) => {
     return { token, name: user.name, email: user.email, role: user.role }
 
 }
+
+
+export default userLogin;
