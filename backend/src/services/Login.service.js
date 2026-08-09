@@ -7,24 +7,23 @@ import e from 'express';
 
 const userLogin = async (email, password) => {
     const user = await prisma.user.findUnique(
-        { where: { email } }
+        { where: { email } }  //finding the user in the postgresDB via unique email
     )
 
-    console.log(`email: ${email}`)
-    console.log(`password: ${password}`)
 
     if (!user) {
         throw new Error('Invalid Credentials')
     }
 
 
-    const isMatch = await bycrpt.compare(password, user.password)
+    const isMatch = await bycrpt.compare(password, user.password)   // comparing the password from the request body  to the password of the user in the database 
 
     if (!isMatch) {
         throw new Error('Invalid Credentials , try agian!!')
 
     }
 
+    //signing the request with jwt for further authentication in subsiquent requests of the loggedin user
 
     const token = jwt.sign(
         {

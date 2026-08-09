@@ -12,10 +12,10 @@ const authenticate = (req, res, next) => {
             return res.status(401).json({ message: 'Token not found' })
         }
 
-        const token = authHeader.split(' ')[1]
+        const token = authHeader.split(' ')[1]  // extracting JWT
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
-        req.user = decoded
+        req.user = decoded //sending back the JWT, to the user, after verification 
         next()
 
     } catch (error) {
