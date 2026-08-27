@@ -15,7 +15,7 @@ const authenticate = (req, res, next) => {
         const token = authHeader.split(' ')[1]  // extracting JWT
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
-        req.user = decoded //sending back the JWT, to the user, after verification 
+        req.user = decoded //sending back the JWT, to the client, after verification 
         next()
 
     } catch (error) {

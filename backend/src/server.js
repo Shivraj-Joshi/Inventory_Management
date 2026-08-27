@@ -8,6 +8,12 @@ app.use(express.json());
 
 
 app.use('/api/auth', authRouter);
+app.use('/api/products',);
+app.use('/api/category',);
+app.use('/api/supplier',);
+app.use('/api/customer',);
+app.use('/api/sales',);
+app.use('/api/inventory',);
 
 app.get('/', (req, res) => {
     res.send('Inventory Management project is running')
