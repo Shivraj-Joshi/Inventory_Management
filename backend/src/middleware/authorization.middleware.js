@@ -1,6 +1,9 @@
-const authorizartion = (roles) => {
+const authorize = (roles) => {
     return (req, res, next)
-    if (!roles.include(req.user.roles)) {
+    if (!roles.includes(req.user.role)) {
         return res.status(403).json({ message: "Forbiddon Access" })
     }
+    next()
 }
+
+export default authorize

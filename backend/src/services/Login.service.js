@@ -1,7 +1,6 @@
 import prisma from '../lib/prisma.js';
 import jwt from 'jsonwebtoken';
-import bycrpt from 'bcrypt'
-import e from 'express';
+import bcrypt from 'bcrypt'
 
 
 
@@ -16,7 +15,7 @@ const userLogin = async (email, password) => {
     }
 
 
-    const isMatch = await bycrpt.compare(password, user.password)   // comparing the password from the request body  to the password of the user in the database 
+    const isMatch = await bcrypt.compare(password, user.password)   // comparing the password from the request body  to the password of the user in the database 
 
     if (!isMatch) {
         throw new Error('Invalid Credentials , try agian!!')
