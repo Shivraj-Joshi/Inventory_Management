@@ -18,8 +18,9 @@ const userLogin = async (email, password) => {
     const isMatch = await bcrypt.compare(password, user.password)   // comparing the password from the request body  to the password of the user in the database 
 
     if (!isMatch) {
-        throw new Error('Invalid Credentials , try agian!!')
-
+        const err = new Error('Invalid Credentials')
+        err.status = 401
+        throw err
     }
 
     //signing the request with jwt for further authentication in subsiquent requests of the loggedin user

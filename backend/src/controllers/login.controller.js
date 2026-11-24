@@ -8,7 +8,7 @@ const login = async (req, res) => {
 
         res.status(200).json(result)
     } catch (error) {
-        res.status(401).json({ message: error.message })
+        res.status(error.status || 500).json({ message: error.status ? error.message : 'Something went wrong' })
     }
 
 

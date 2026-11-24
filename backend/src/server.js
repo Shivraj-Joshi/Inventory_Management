@@ -1,6 +1,6 @@
 import dotenv from 'dotenv/config'
 import express from 'express'
-// import authRouter from './routes/auth.routes.js'
+import authRouter from './routes/auth.routes.js'
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 5000
 app.use(express.json());
 
 
-// app.use('/api/auth', authRouter);
+app.use('/api/auth', authRouter);
 // app.use('/api/products',);
 // app.use('/api/category',);
-// app.use('/api/supplier',);
+// app.use('/api/suppliers',);
 // app.use('/api/customer',);
 // app.use('/api/sales',);
 // app.use('/api/inventory',);
